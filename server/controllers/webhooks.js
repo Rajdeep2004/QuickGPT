@@ -39,7 +39,7 @@ export const stripeWebhooks = async (req, res) => {
           //update transiction status
           transaction.isPaid = true;
           //await TranscriptionSessions.save();
-          await TransitionEvent.save();
+          await transaction.save();
         } else {
           return response.json({
             success: false,

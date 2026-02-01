@@ -16,12 +16,9 @@ export const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
 
   try {
-    if (!name || !email || !password) {
-      return res.json({ success: false, message: "Missing Details" });
-    }
-    const userExits = await User.findOne({ email });
+    const userExists = await User.findOne({ email });
 
-    if (userExits) {
+    if (userExists) {
       return res.json({
         success: false,
         message: "user already exists",
@@ -66,7 +63,7 @@ export const getUser = async (req, res) => {
   }
 };
 
-//api to get published iamges
+//api to get published images
 export const getPublishedImages = async (req, res) => {
   try {
     const publishedImageMessages = await Chat.aggregate([
