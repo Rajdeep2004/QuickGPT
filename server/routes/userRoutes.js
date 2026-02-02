@@ -12,6 +12,6 @@ const userRoute = express.Router();
 userRoute.post("/register", registerUser);
 userRoute.post("/login", loginUser);
 userRoute.get("/data", protect, getUser);
-userRoute.get("/published-images", protect, getPublishedImages);
+userRoute.get("/published-images", getPublishedImages);
 
 export default userRoute;
